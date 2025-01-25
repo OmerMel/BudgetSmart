@@ -1,4 +1,4 @@
-    package com.example.budgetsmart
+package com.example.budgetsmart
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -7,6 +7,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.example.budgetsmart.Fragments.HomeFragment
+import com.example.budgetsmart.Fragments.TransactionsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
     class MainActivity : AppCompatActivity() {
@@ -18,6 +19,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
         setContentView(R.layout.activity_main)
 
         val homeFragment = HomeFragment()
+        val transactionsFragment = TransactionsFragment()
 
         findViews()
         replaceFragment(homeFragment)
@@ -25,7 +27,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
         bottom_navigation.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.Home -> replaceFragment(homeFragment)
-                R.id.Reports -> replaceFragment(homeFragment)
+                R.id.transactions -> replaceFragment(transactionsFragment)
                 R.id.Settings -> replaceFragment(homeFragment)
                 else -> replaceFragment(homeFragment)
             }

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="defaultMargin">32dp</dimen>
+    <dimen name="intoMarginBottom">62dp</dimen>
+    <dimen name="mainHorizontalMargin">16dp</dimen>
+</resources>

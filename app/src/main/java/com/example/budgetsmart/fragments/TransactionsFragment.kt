@@ -1,4 +1,4 @@
-package com.example.budgetsmart.Fragments
+package com.example.budgetsmart.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

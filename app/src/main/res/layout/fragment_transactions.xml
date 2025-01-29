@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:text="Transactions"
         android:textSize="20sp"
-        android:textColor="#1a237e"
+        android:textColor="@color/darkBlue"
         android:textStyle="bold"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
@@ -43,7 +43,7 @@
             android:id="@+id/prevMonth"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:src="@drawable/ic_arrow_left"
+            android:src="@drawable/ic_left_arrow"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="Previous Month"/>
 
@@ -60,7 +60,7 @@
             android:id="@+id/nextMonth"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:src="@drawable/ic_arrow_right"
+            android:src="@drawable/ic_right_arrow"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="Next Month"/>
     </LinearLayout>
@@ -171,8 +171,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:src="@drawable/ic_add"
-        android:backgroundTint="#1a237e"
-        app:tint="@color/darkBlue"
+        android:backgroundTint="@color/darkBlue"
+        app:tint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 

@@ -5,13 +5,16 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.example.budgetsmart.fragments.HomeFragment
-import com.example.budgetsmart.fragments.ProfileSettingsFragment
-import com.example.budgetsmart.fragments.SettingsFragment
-import com.example.budgetsmart.fragments.TransactionsFragment
+import com.example.budgetsmart.presentation.ui.budgets.BudgetFragment
+import com.example.budgetsmart.presentation.ui.budgets.editBudget.EditBudgetFragment
+import com.example.budgetsmart.presentation.ui.home.HomeFragment
+import com.example.budgetsmart.presentation.ui.reports.ReportsFragment
+import com.example.budgetsmart.presentation.ui.settings.profileSettings.ProfileSettingsFragment
+import com.example.budgetsmart.presentation.ui.settings.SettingsFragment
+import com.example.budgetsmart.presentation.ui.transactions.TransactionsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-    class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var bottom_navigation: BottomNavigationView
 
@@ -22,6 +25,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
         val homeFragment = HomeFragment()
         val transactionsFragment = TransactionsFragment()
+        val budgetFragment = BudgetFragment()
+        val reportFragment = ReportsFragment()
         val settingsFragment = SettingsFragment()
 
         findViews()
@@ -31,6 +36,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
             when (it.itemId) {
                 R.id.Home -> replaceFragment(homeFragment)
                 R.id.transactions -> replaceFragment(transactionsFragment)
+                R.id.budgets -> replaceFragment(budgetFragment)
+                R.id.reports -> replaceFragment(reportFragment)
                 R.id.Settings -> replaceFragment(settingsFragment)
                 else -> replaceFragment(homeFragment)
             }
@@ -41,6 +48,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
             val currentFragment = supportFragmentManager.findFragmentById(R.id.fragment_container)
             when (currentFragment) {
                 is ProfileSettingsFragment -> hideBottomNavigation()
+                is EditBudgetFragment -> hideBottomNavigation()
                 else -> showBottomNavigation()
             }
         }

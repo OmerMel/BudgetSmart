@@ -40,14 +40,14 @@
         app:layout_constraintTop_toBottomOf="@id/headerDivider">
 
         <ImageButton
-            android:id="@+id/prevMonth"
+            android:id="@+id/budget_BTN_prevMonth"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:src="@drawable/ic_left_arrow"
             android:background="?attr/selectableItemBackgroundBorderless"/>
 
         <TextView
-            android:id="@+id/currentMonth"
+            android:id="@+id/budget_LBL_currentMonth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="January 2025"
@@ -56,7 +56,7 @@
             android:layout_marginHorizontal="32dp"/>
 
         <ImageButton
-            android:id="@+id/nextMonth"
+            android:id="@+id/budget_BTN_nextMonth"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:src="@drawable/ic_right_arrow"
@@ -88,6 +88,7 @@
             android:padding="16dp">
 
             <TextView
+                android:id="@+id/budget_LBL_totalBudget"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Total Budget: $5,000"
@@ -95,6 +96,7 @@
                 android:textColor="@color/darkBlue"/>
 
             <TextView
+                android:id="@+id/budget_LBL_spentRemaining"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -105,7 +107,7 @@
 
     <!-- Edit Budget Button -->
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/editBudgetButton"
+        android:id="@+id/budget_BTN_editBudgetButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Edit Budget"
@@ -123,7 +125,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/editBudgetButton"
+        app:layout_constraintTop_toBottomOf="@id/budget_BTN_editBudgetButton"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

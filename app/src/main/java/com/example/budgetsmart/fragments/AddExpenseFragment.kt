@@ -1,13 +1,14 @@
-package com.example.budgetsmart.Fragments
+package com.example.budgetsmart.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.budgetsmart.R
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class TransactionsFragment : Fragment() {
+
+class AddExpenseFragment : BottomSheetDialogFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,6 +19,6 @@ class TransactionsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_transactions, container, false)
+        return inflater.inflate(R.layout.fragment_add_expense, container, false)
     }
 }

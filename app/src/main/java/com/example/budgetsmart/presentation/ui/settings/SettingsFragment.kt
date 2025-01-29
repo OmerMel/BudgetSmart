@@ -1,4 +1,4 @@
-package com.example.budgetsmart.fragments
+package com.example.budgetsmart.presentation.ui.settings
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import com.example.budgetsmart.R
-import com.example.budgetsmart.databinding.FragmentSettingsBinding
+import com.example.budgetsmart.presentation.ui.settings.profileSettings.ProfileSettingsFragment
 import com.google.android.material.button.MaterialButton
 
 class SettingsFragment : Fragment() {

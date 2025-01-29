@@ -1,4 +1,4 @@
-package com.example.budgetsmart.Fragments
+package com.example.budgetsmart.presentation.ui.transactions
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.budgetsmart.R
 
+class TransactionsFragment : Fragment() {
 
-class ReportsFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -18,6 +18,6 @@ class ReportsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_reports, container, false)
+        return inflater.inflate(R.layout.fragment_transactions, container, false)
     }
 }

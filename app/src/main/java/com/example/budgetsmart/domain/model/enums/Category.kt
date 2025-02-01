@@ -1,33 +1,38 @@
 package com.example.budgetsmart.domain.model.enums
 
-import com.example.budgetsmart.R
-
-enum class Category (
-    val icon: Int,
-    val color: Int,
-    val type: TransactionType
+enum class Category(
+    val displayName: String,     // Human-readable name
+    val type: TransactionType    // INCOME or EXPENSE
 ) {
-    /*
     // Income Categories
-    SALARY(R.drawable.ic_salary, R.color.green, TransactionType.INCOME),
-    BUSINESS(R.drawable.ic_business, R.color.blue, TransactionType.INCOME),
-    INVESTMENTS(R.drawable.ic_investment, R.color.darkBlue, TransactionType.INCOME),
-    RENTAL(R.drawable.ic_home, R.color.blue, TransactionType.INCOME),
-    GIFTS(R.drawable.ic_gift, R.color.pink, TransactionType.INCOME),
-    OTHER_INCOME(R.drawable.ic_other, R.color.grey, TransactionType.INCOME),
+    SALARY("Salary", TransactionType.INCOME),
+    BUSINESS("Business", TransactionType.INCOME),
+    INVESTMENTS("Investments", TransactionType.INCOME),
+    RENTAL("Rental Income", TransactionType.INCOME),
+    GIFTS("Gifts", TransactionType.INCOME),
+    OTHER_INCOME("Other Income", TransactionType.INCOME),
 
     // Expense Categories
-    HOUSING(R.drawable.ic_home, R.color.blue, TransactionType.EXPENSE),
-    TRANSPORTATION(R.drawable.ic_transport, R.color.darkBlue, TransactionType.EXPENSE),
-    FOOD(R.drawable.ic_food, R.color.green, TransactionType.EXPENSE),
-    UTILITIES(R.drawable.ic_utility, R.color.blue, TransactionType.EXPENSE),
-    HEALTHCARE(R.drawable.ic_health, R.color.pink, TransactionType.EXPENSE),
-    SHOPPING(R.drawable.ic_shopping, R.color.blue, TransactionType.EXPENSE),
-    ENTERTAINMENT(R.drawable.ic_entertainment, R.color.pink, TransactionType.EXPENSE),
-    EDUCATION(R.drawable.ic_education, R.color.darkBlue, TransactionType.EXPENSE),
-    INSURANCE(R.drawable.ic_insurance, R.color.blue, TransactionType.EXPENSE),
-    SAVINGS(R.drawable.ic_savings, R.color.green, TransactionType.EXPENSE),
-    DEBT(R.drawable.ic_debt, R.color.red, TransactionType.EXPENSE),
-    OTHER_EXPENSE(R.drawable.ic_other, R.color.grey, TransactionType.EXPENSE);
-*/
+    HOUSING("Housing", TransactionType.EXPENSE),
+    TRANSPORTATION("Transportation", TransactionType.EXPENSE),
+    FOOD("Food & Dining", TransactionType.EXPENSE),
+    UTILITIES("Utilities", TransactionType.EXPENSE),
+    HEALTHCARE("Healthcare", TransactionType.EXPENSE),
+    SHOPPING("Shopping", TransactionType.EXPENSE),
+    ENTERTAINMENT("Entertainment", TransactionType.EXPENSE),
+    EDUCATION("Education", TransactionType.EXPENSE),
+    INSURANCE("Insurance", TransactionType.EXPENSE),
+    SAVINGS("Savings", TransactionType.EXPENSE),
+    DEBT("Debt Payment", TransactionType.EXPENSE),
+    OTHER_EXPENSE("Other Expense", TransactionType.EXPENSE);
+
+    companion object {
+        // Helper function to get all income categories
+        fun getIncomeCategories(): List<Category> =
+            entries.filter { it.type == TransactionType.INCOME }
+
+        // Helper function to get all expense categories
+        fun getExpenseCategories(): List<Category> =
+            entries.filter { it.type == TransactionType.EXPENSE }
+    }
 }

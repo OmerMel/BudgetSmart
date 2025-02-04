@@ -1,5 +1,6 @@
 package com.example.budgetsmart.presentation.ui.home
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.LiveData
@@ -37,12 +38,11 @@ class   HomeViewModel(
     fun loadData() {
         viewModelScope.launch {
             try {
-                println("Debug: Loading data in HomeViewModel")
                 updateBalance()
                 updateRecentTransactions()
                 updateMonthlyStats()
             } catch (e: Exception) {
-                println("Debug: Error loading data: ${e.message}")
+                Log.e("HomeViewModel","Debug: Error loading data", e)
             }
         }
     }
@@ -95,11 +95,10 @@ class   HomeViewModel(
                     date = LocalDateTime.now(),
                     attachmentUri = attachmentUri
                 )
-                println("Debug: Adding transaction in AddViewModel: $transaction")
                 repository.addTransaction(transaction)
                 _saveTransactionSuccess.value = true
             } catch (e: Exception) {
-                println("Debug: Error adding transaction: ${e.message}")
+                Log.e("HomeViewModel", "Error adding transaction", e)
                 _saveTransactionSuccess.value = false
             }
         }

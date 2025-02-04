@@ -40,8 +40,8 @@ class TransactionAdapter : RecyclerView.Adapter<TransactionAdapter.TransactionVi
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(transaction: Transaction) {
-            // Set category
-            binding.iTransactionLBLCategory.text = transaction.category.displayName
+            // Set category ( or description if not empty )
+            binding.iTransactionLBLCategory.text = transaction.description.ifEmpty { transaction.category.displayName }
 
             // Format and set amount with color
             binding.iTransactionLBLAmount.apply {

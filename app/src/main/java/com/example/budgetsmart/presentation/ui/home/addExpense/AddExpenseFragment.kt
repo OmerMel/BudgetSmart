@@ -8,13 +8,13 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.activityViewModels
 import com.example.budgetsmart.databinding.FragmentAddExpenseBinding
 import com.example.budgetsmart.domain.model.enums.Category
-import com.example.budgetsmart.presentation.ui.home.AddViewModel
+import com.example.budgetsmart.presentation.ui.home.HomeViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class AddExpenseFragment : BottomSheetDialogFragment() {
     private var _binding: FragmentAddExpenseBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: AddViewModel by activityViewModels()
+    private val viewModel: HomeViewModel by activityViewModels()
 
     private var selectedReceiptUri: String? = null
 

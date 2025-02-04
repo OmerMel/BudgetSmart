@@ -23,9 +23,7 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
     private val transactionAdapter = TransactionAdapter()
 
-    private val viewModel: HomeViewModel by viewModels()
-    private val addViewModel: AddViewModel by activityViewModels()
-
+    private val viewModel: HomeViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,12 +40,6 @@ class HomeFragment : Fragment() {
         setupRecyclerView()
         setupObservers()
         setupClickListeners()
-
-        addViewModel.saveTransactionSuccess.observe(viewLifecycleOwner) { success ->
-            if (success) {
-                viewModel.loadData()
-            }
-        }
     }
 
     private fun setupRecyclerView() {
@@ -76,6 +68,12 @@ class HomeFragment : Fragment() {
 
         viewModel.recentTransactions.observe(viewLifecycleOwner) { transactions ->
             transactionAdapter.updateTransactions(transactions)
+        }
+
+        viewModel.saveTransactionSuccess.observe(viewLifecycleOwner) { success ->
+            if (success) {
+                viewModel.loadData()
+            }
         }
     }
 

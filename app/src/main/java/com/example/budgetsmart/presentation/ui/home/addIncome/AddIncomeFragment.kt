@@ -8,14 +8,14 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.activityViewModels
 import com.example.budgetsmart.databinding.FragmentAddIncomeBinding
 import com.example.budgetsmart.domain.model.enums.Category
-import com.example.budgetsmart.presentation.ui.home.AddViewModel
+import com.example.budgetsmart.presentation.ui.home.HomeViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class AddIncomeFragment : BottomSheetDialogFragment() {
 
     private var _binding: FragmentAddIncomeBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: AddViewModel by activityViewModels()
+    private val viewModel: HomeViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

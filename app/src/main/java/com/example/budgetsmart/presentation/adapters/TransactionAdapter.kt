@@ -16,8 +16,24 @@ class TransactionAdapter : RecyclerView.Adapter<TransactionAdapter.TransactionVi
     private var transactions: List<Transaction> = emptyList()
 
     fun updateTransactions(newTransactions: List<Transaction>) {
+        val oldTransactions = transactions
         transactions = newTransactions
-        notifyDataSetChanged()
+
+        // Use DiffUtil for an efficient update
+        val diffResult = androidx.recyclerview.widget.DiffUtil.calculateDiff(object : androidx.recyclerview.widget.DiffUtil.Callback() {
+            override fun getOldListSize() = oldTransactions.size
+            override fun getNewListSize() = newTransactions.size
+
+            override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+                return oldTransactions[oldItemPosition].id == newTransactions[newItemPosition].id
+            }
+
+            override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+                return oldTransactions[oldItemPosition] == newTransactions[newItemPosition]
+            }
+        })
+
+        diffResult.dispatchUpdatesTo(this)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TransactionViewHolder {

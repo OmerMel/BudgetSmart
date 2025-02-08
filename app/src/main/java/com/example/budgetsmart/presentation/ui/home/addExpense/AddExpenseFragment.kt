@@ -21,7 +21,7 @@ class AddExpenseFragment : BottomSheetDialogFragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentAddExpenseBinding.inflate(inflater, container, false)
         return binding.root
     }

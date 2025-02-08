@@ -3,211 +3,235 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="16dp">
 
-    <!-- Top Bar -->
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/white"
-        app:navigationIcon="@drawable/ic_chevron_left"
-        app:title="Edit Budget"
-        app:titleTextAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-        app:titleTextColor="@color/darkBlue" />
+    <!-- Total Budget Section -->
+    <TextView
+        android:id="@+id/tvTotalBudgetLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Monthly Budget:"
+        android:textSize="16sp"
+        android:textColor="@color/darkBlue" />
 
-    <!-- Content Area -->
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="#F5F5F5"
-        android:fillViewport="true">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tvTotalBudgetAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$2500"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/blue" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEditTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Edit"
+            android:textColor="@color/white"
+            app:cornerRadius="16dp"
+            style="@style/Widget.MaterialComponents.Button"
+            app:backgroundTint="@color/blue" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvRemainingBudget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Remaining: $2500"
+        android:textSize="16sp"
+        android:textColor="@color/darkBlue" />
+
+    <!-- Budget Input Categories -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="24dp">
+
+        <!-- Category Entry Block -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Housing:"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/etHousingAmount"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:hint="$0"
+                android:backgroundTint="@color/grey" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp"
+            android:gravity="center_vertical">
 
-            <!-- Total Budget Card -->
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:text="Food:"
+                android:textSize="16sp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Monthly Budget"
-                    android:textColor="@color/grey"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/totalBudgetAmount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="$2,500"
-                    android:textColor="@color/darkBlue"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <!-- Housing Category -->
-            <LinearLayout
-                android:layout_width="match_parent"
+            <EditText
+                android:id="@+id/etFoodAmount"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@color/white"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Housing"
-                    android:textColor="@color/darkBlue"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/housingPercentage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="48% ($1,200)"
-                    android:textColor="@color/grey"
-                    android:textSize="14sp" />
-
-                <com.google.android.material.slider.Slider
-                    android:id="@+id/housingSlider"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:value="48"
-                    android:valueFrom="0"
-                    android:valueTo="100" />
-            </LinearLayout>
-
-            <!-- Food Category -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@color/white"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Food"
-                    android:textColor="@color/darkBlue"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/foodPercentage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="20% ($500)"
-                    android:textColor="@color/grey"
-                    android:textSize="14sp" />
-
-                <com.google.android.material.slider.Slider
-                    android:id="@+id/foodSlider"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:value="20"
-                    android:valueFrom="0"
-                    android:valueTo="100" />
-            </LinearLayout>
-
-            <!-- Transportation Category -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@color/white"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Transportation"
-                    android:textColor="@color/darkBlue"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/transportationPercentage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="16% ($400)"
-                    android:textColor="@color/grey"
-                    android:textSize="14sp" />
-
-                <com.google.android.material.slider.Slider
-                    android:id="@+id/transportationSlider"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:value="16"
-                    android:valueFrom="0"
-                    android:valueTo="100" />
-            </LinearLayout>
-
-            <!-- Entertainment Category -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@color/white"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Entertainment"
-                    android:textColor="@color/darkBlue"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/entertainmentPercentage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="16% ($400)"
-                    android:textColor="@color/grey"
-                    android:textSize="14sp" />
-
-                <com.google.android.material.slider.Slider
-                    android:id="@+id/entertainmentSlider"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:value="16"
-                    android:valueFrom="0"
-                    android:valueTo="100" />
-            </LinearLayout>
+                android:inputType="numberDecimal"
+                android:hint="$0"
+                android:backgroundTint="@color/grey" />
         </LinearLayout>
-    </ScrollView>
 
-    <!-- Save Button -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Transportation:"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/etTransportationAmount"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:hint="$0"
+                android:backgroundTint="@color/grey" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Entertainment:"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/etEntertainmentAmount"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:hint="$0"
+                android:backgroundTint="@color/grey" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Utilities:"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/etUtilitiesAmount"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:hint="$0"
+                android:backgroundTint="@color/grey" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Shopping:"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/etShoppingAmount"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:hint="$0"
+                android:backgroundTint="@color/grey" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Other:"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/etOtherAmount"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:hint="$0"
+                android:backgroundTint="@color/grey" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Save Changes Button -->
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/saveButton"
+        android:id="@+id/btnSaveBudget"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:padding="12dp"
+        android:layout_marginTop="24dp"
         android:text="Save Changes"
+        app:cornerRadius="16dp"
         android:textColor="@color/white"
-        app:backgroundTint="@color/blue"
-        app:cornerRadius="24dp" />
+        app:backgroundTint="@color/blue" />
 
 </LinearLayout>
